@@ -1,7 +1,7 @@
 # ai4good-CNN_introduction
 
 Overview
-Over 80% of smallholder farms in Sub-Saharan Africa depend on cassava as a primary food source. Viral diseases are silently devastating these crops — and with limited access to agricultural experts, farmers have no fast, affordable way to diagnose what's wrong.
+Over 80% of smallholder farms in Sub-Saharan Africa depend on cassava as a primary food source. Viral diseases are silently devastating these crops, and with limited access to agricultural experts, farmers have no fast, affordable way to diagnose what's wrong.
 This project applies transfer learning and computer vision to classify cassava leaf images into one of five categories: four disease types or healthy. Built on 21,367 real field images sourced from Ugandan farms, the goal is a model accurate enough to run on a mobile camera — putting disease detection directly in a farmer's hands.
 
 ## The Problem
@@ -14,26 +14,26 @@ Farmers capturing images on basic mobile devices need a lightweight, reliable cl
 
 ## Approach
 Four models were developed and compared iteratively, each building on the weaknesses of the last.
-### Model 1 — Baseline (Evaluation Only)
+### Model 1: Baseline (Evaluation Only)
 
 Architecture: ShuffleNet V2 x0.5 (pretrained, ImageNet weights)
 No fine-tuning; evaluated directly on the validation set
 Establishes a performance floor for comparison
 
-### Model 2 — Pre-built Fine-tuned
+### Model 2: Pre-built Fine-tuned
 
 Architecture: ShuffleNet V2 x0.5
 Fine-tuned with Adam optimizer (LR: 0.001), CrossEntropyLoss, 10 epochs
 Establishes the gain from training vs. zero-shot transfer
 
-### Model 3 — ResNet-18
+### Model 3: ResNet-18
 
 Architecture: ResNet-18 (deeper, more expressive than ShuffleNet)
 Lower LR (0.0001) to preserve pretrained feature representations
 Separate train/val transforms introduced: random crop and horizontal flip for augmentation
 10 epochs
 
-### Model 4 — ResNet-50 (Best Model)
+### Model 4: ResNet-50 (Best Model)
 
 Architecture: ResNet-50
 Richer augmentation: random crop, horizontal flip, vertical flip, ColorJitter
