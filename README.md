@@ -20,14 +20,16 @@ Architecture: ShuffleNet V2 x0.5 (pretrained, ImageNet weights)
 No fine-tuning; evaluated directly on the validation set
 Establishes a performance floor for comparison
 
-### Model 2: Pre-built Fine-tuned
+### Model 2: Pre-built Fine-tuned 
 
+Self-Built
 Architecture: ShuffleNet V2 x0.5
 Fine-tuned with Adam optimizer (LR: 0.001), CrossEntropyLoss, 10 epochs
 Establishes the gain from training vs. zero-shot transfer
 
 ### Model 3: ResNet-18
 
+Self-Built
 Architecture: ResNet-18 (deeper, more expressive than ShuffleNet)
 Lower LR (0.0001) to preserve pretrained feature representations
 Separate train/val transforms introduced: random crop and horizontal flip for augmentation
